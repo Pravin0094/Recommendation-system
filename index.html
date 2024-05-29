@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>XGBoost Model Deployment</title>
+</head>
+<body>
+    <h1>Course Recommendation System</h1>
+    <form action="/predict" method="post">
+        <label for="graduation">Graduation:</label>
+        <input type="text" name="graduation" required>
+        <br>
+        <label for="interest">Interest:</label>
+        <input type="text" name="interest" required>
+        <br>
+        <label for="prerequisites">Prerequisites:</label>
+        <input type="text" name="prerequisites" required>
+        <br>
+        <label for="entrance_test_score">Entrance Test Score:</label>
+        <input type="number" name="entrance_test_score" required>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if recommended_course %}
+        <p>Recommended Course: {{ recommended_course }}</p>
+    {% endif %}
+</body>
+</html>
